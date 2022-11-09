@@ -10,4 +10,16 @@ public class ShopApplication {
 		SpringApplication.run(ShopApplication.class, args);
 	}
 
+//	// dodanie naglowka Allow Origins -> CORS  // obsluga cors zrealizowana po stronie frontendu
+//	@Bean
+//	public WebMvcConfigurer cors(){
+//		return new WebMvcConfigurer() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//				registry.addMapping("/**")
+//						.allowedOrigins("http://localhost:4200");
+//			}
+//		};
+//	}
+
 }

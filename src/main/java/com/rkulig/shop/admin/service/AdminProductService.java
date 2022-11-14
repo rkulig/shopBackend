@@ -17,4 +17,17 @@ public class AdminProductService {
         return adminProductRepository.findAll(pageable);
     }
 
+    public AdminProduct getProduct(Long id) {
+        return adminProductRepository.findById(id).orElseThrow();
+    }
+
+    public AdminProduct createProduct(AdminProduct product) {
+        return adminProductRepository.save(product);
+    }
+
+    public AdminProduct updateProduct(AdminProduct product) {
+        return adminProductRepository.save(product);
+    }
+
+
 }

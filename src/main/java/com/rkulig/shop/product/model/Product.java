@@ -1,13 +1,11 @@
 package com.rkulig.shop.product.model;
 
+import com.rkulig.shop.admin.model.AdminProductCurrency;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -23,6 +21,7 @@ public class Product {
     private String category;
     private String description;
     private BigDecimal price;
-    private String currency;
+    @Enumerated(EnumType.STRING) // to enforce saving String value, not ordinal (number of enum value)
+    private AdminProductCurrency currency;
 
 }

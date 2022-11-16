@@ -1,5 +1,6 @@
 package com.rkulig.shop.admin.controller;
 
+import com.github.slugify.Slugify;
 import com.rkulig.shop.admin.controller.dto.AdminProductDto;
 import com.rkulig.shop.admin.controller.dto.UploadResponse;
 import com.rkulig.shop.admin.model.AdminProduct;
@@ -82,7 +83,13 @@ public class AdminProductController {
                 .price(adminProductDto.getPrice())
                 .currency(adminProductDto.getCurrency())
                 .image(adminProductDto.getImage())
+                .slug(slugifySlug(adminProductDto.getSlug()))
                 .build();
+    }
+
+    private static String slugifySlug(String slug) { // tworzenie przyjaznego urla
+        Slugify slg = Slugify.builder().customReplacement("_","-").build();
+        return slg.slugify(slug);
     }
 
 }

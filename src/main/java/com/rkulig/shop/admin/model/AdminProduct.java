@@ -23,8 +23,9 @@ public class AdminProduct {
     private String category;
     private String description;
     private BigDecimal price;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) // to enforce saving String value, not ordinal (number of enum value)
     private AdminProductCurrency currency;
     private String image;
+    private String slug;
 
 }

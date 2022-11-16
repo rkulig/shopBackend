@@ -25,4 +25,6 @@ public class AdminProductDto {
     @DecimalMin(value = "0.0")
     private BigDecimal price;
     private AdminProductCurrency currency;
+    private String image;
+
 }

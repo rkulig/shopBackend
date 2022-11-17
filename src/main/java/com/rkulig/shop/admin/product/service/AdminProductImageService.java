@@ -1,4 +1,4 @@
-package com.rkulig.shop.admin.service;
+package com.rkulig.shop.admin.product.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResourceLoader;

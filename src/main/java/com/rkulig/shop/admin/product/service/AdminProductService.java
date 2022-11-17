@@ -1,7 +1,7 @@
-package com.rkulig.shop.admin.service;
+package com.rkulig.shop.admin.product.service;
 
-import com.rkulig.shop.admin.model.AdminProduct;
-import com.rkulig.shop.admin.repository.AdminProductRepository;
+import com.rkulig.shop.admin.product.model.AdminProduct;
+import com.rkulig.shop.admin.product.repository.AdminProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

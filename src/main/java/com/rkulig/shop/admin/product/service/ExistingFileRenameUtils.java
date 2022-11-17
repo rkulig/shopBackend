@@ -1,4 +1,4 @@
-package com.rkulig.shop.admin.service;
+package com.rkulig.shop.admin.product.service;
 
 import org.apache.commons.io.FilenameUtils;
 

@@ -1,4 +1,4 @@
-package com.rkulig.shop.admin.service;
+package com.rkulig.shop.admin.product.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

@@ -1,4 +1,4 @@
-package com.rkulig.shop.admin.model;
+package com.rkulig.shop.admin.product.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

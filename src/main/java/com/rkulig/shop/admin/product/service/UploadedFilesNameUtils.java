@@ -1,4 +1,4 @@
-package com.rkulig.shop.admin.service;
+package com.rkulig.shop.admin.product.service;
 
 import com.github.slugify.Slugify;
 import org.apache.commons.io.FilenameUtils;

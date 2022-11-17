@@ -1,11 +1,11 @@
-package com.rkulig.shop.admin.controller;
+package com.rkulig.shop.admin.product.controller;
 
 import com.github.slugify.Slugify;
-import com.rkulig.shop.admin.controller.dto.AdminProductDto;
-import com.rkulig.shop.admin.controller.dto.UploadResponse;
-import com.rkulig.shop.admin.model.AdminProduct;
-import com.rkulig.shop.admin.service.AdminProductImageService;
-import com.rkulig.shop.admin.service.AdminProductService;
+import com.rkulig.shop.admin.product.controller.dto.AdminProductDto;
+import com.rkulig.shop.admin.product.controller.dto.UploadResponse;
+import com.rkulig.shop.admin.product.model.AdminProduct;
+import com.rkulig.shop.admin.product.service.AdminProductImageService;
+import com.rkulig.shop.admin.product.service.AdminProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,6 @@
-package com.rkulig.shop.admin.controller.dto;
+package com.rkulig.shop.admin.product.controller.dto;
 
-import com.rkulig.shop.admin.model.AdminProductCurrency;
+import com.rkulig.shop.admin.product.model.AdminProductCurrency;
 import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 

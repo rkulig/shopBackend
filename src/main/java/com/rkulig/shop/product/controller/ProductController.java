@@ -25,7 +25,7 @@ public class ProductController {
         return productService.getProducts(pageable);
     }
 
-    @GetMapping("products/{slug}")
+    @GetMapping("/products/{slug}")
     public Product getProductBySlug(
             @PathVariable
             @Pattern(regexp = "[a-z0-9\\-]+") // walidacja sluga za pomoca beanow

@@ -20,13 +20,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-//    private String category;
+    private Long categoryId;
     private String description;
     private String fullDescription;
     private BigDecimal price;
     private String currency;
     private String image;
-    private String slug;
+    private String slug; // skrocona nazwa w linku
 
 
 }

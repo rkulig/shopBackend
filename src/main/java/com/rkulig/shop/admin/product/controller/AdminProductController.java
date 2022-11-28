@@ -41,12 +41,12 @@ public class AdminProductController {
     }
 
     @PostMapping("/admin/products")
-    public AdminProduct getProduct(@RequestBody @Valid AdminProductDto adminProductDto) {
+    public AdminProduct addProduct(@RequestBody @Valid AdminProductDto adminProductDto) {
         return adminProductService.createProduct(mapAdminProduct(adminProductDto, EMPTY_ID));
     }
 
     @PutMapping("/admin/products/{id}")
-    public AdminProduct getProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
+    public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
         return adminProductService.updateProduct(mapAdminProduct(adminProductDto, id));
     }
 

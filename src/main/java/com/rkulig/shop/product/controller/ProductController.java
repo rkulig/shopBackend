@@ -3,6 +3,7 @@ package com.rkulig.shop.product.controller;
 import com.rkulig.shop.common.dto.ProductListDto;
 import com.rkulig.shop.common.model.Product;
 import com.rkulig.shop.product.service.ProductService;
+import com.rkulig.shop.product.service.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.domain.Page;
@@ -41,7 +42,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{slug}")
-    public Product getProductBySlug(
+    public ProductDto getProductBySlug(
             @PathVariable
             @Pattern(regexp = "[a-z0-9\\-]+") // walidacja sluga za pomoca beanow
             @Length(max = 255)

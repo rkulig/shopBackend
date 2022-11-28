@@ -1,6 +1,5 @@
-package com.rkulig.shop.product.model;
+package com.rkulig.shop.common.model;
 
-import com.rkulig.shop.review.model.Review;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,7 +1,7 @@
 package com.rkulig.shop.product.service;
 
-import com.rkulig.shop.product.model.Product;
-import com.rkulig.shop.product.repository.ProductRepository;
+import com.rkulig.shop.common.model.Product;
+import com.rkulig.shop.common.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

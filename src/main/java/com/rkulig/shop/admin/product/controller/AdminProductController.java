@@ -1,6 +1,5 @@
 package com.rkulig.shop.admin.product.controller;
 
-import com.github.slugify.Slugify;
 import com.rkulig.shop.admin.product.controller.dto.AdminProductDto;
 import com.rkulig.shop.admin.product.controller.dto.UploadResponse;
 import com.rkulig.shop.admin.product.model.AdminProduct;
@@ -20,6 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import static com.rkulig.shop.admin.common.utils.SlugifyUtils.slugifySlug;
 
 @RestController
 @RequiredArgsConstructor
@@ -88,9 +89,5 @@ public class AdminProductController {
                 .build();
     }
 
-    private static String slugifySlug(String slug) { // tworzenie przyjaznego urla
-        Slugify slg = Slugify.builder().customReplacement("_","-").build();
-        return slg.slugify(slug);
-    }
 
 }

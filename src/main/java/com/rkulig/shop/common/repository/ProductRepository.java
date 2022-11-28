@@ -1,6 +1,6 @@
-package com.rkulig.shop.product.repository;
+package com.rkulig.shop.common.repository;
 
-import com.rkulig.shop.product.model.Product;
+import com.rkulig.shop.common.model.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

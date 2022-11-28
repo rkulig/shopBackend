@@ -1,5 +1,6 @@
 package com.rkulig.shop.admin.product.service;
 
+import com.rkulig.shop.admin.common.utils.SlugifyUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
@@ -19,7 +20,7 @@ public class AdminProductImageService {
     private String uploadDir;
 
     public String uploadImage(String fileName, InputStream inputStream) {
-        String newFileName = UploadedFilesNameUtils.slugifyFileName(fileName);
+        String newFileName = SlugifyUtils.slugifyFileName(fileName);
         newFileName = ExistingFileRenameUtils.renameIfExists(Path.of(uploadDir), newFileName);
         Path filePath = Paths.get(uploadDir).resolve(newFileName);
         try (OutputStream outputStream = Files.newOutputStream(filePath)) {

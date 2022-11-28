@@ -1,8 +1,8 @@
 package com.rkulig.shop.category.controller;
 
-import com.rkulig.shop.category.model.Category;
-import com.rkulig.shop.category.model.CategoryProductsDto;
+import com.rkulig.shop.category.dto.CategoryProductsDto;
 import com.rkulig.shop.category.service.CategoryService;
+import com.rkulig.shop.common.model.Category;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.domain.Pageable;

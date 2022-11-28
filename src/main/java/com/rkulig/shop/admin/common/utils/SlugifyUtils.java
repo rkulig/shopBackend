@@ -1,13 +1,18 @@
-package com.rkulig.shop.admin.product.service;
+package com.rkulig.shop.admin.common.utils;
 
 import com.github.slugify.Slugify;
 import org.apache.commons.io.FilenameUtils;
 
-class UploadedFilesNameUtils {
+public class SlugifyUtils {
     public static String slugifyFileName(String fileName) {
         String name = FilenameUtils.getBaseName(fileName);
         Slugify slg = Slugify.builder().customReplacement("_","-").build();
         String changedName = slg.slugify(name);
         return changedName + "." + FilenameUtils.getExtension(fileName);
+    }
+
+    public static String slugifySlug(String slug) { // tworzenie przyjaznego urla
+        Slugify slg = Slugify.builder().customReplacement("_","-").build();
+        return slg.slugify(slug);
     }
 }

@@ -1,11 +1,11 @@
 package com.rkulig.shop.category.service;
 
-import com.rkulig.shop.category.model.Category;
-import com.rkulig.shop.category.model.CategoryProductsDto;
+import com.rkulig.shop.category.dto.CategoryProductsDto;
 import com.rkulig.shop.category.repository.CategoryRepository;
 import com.rkulig.shop.common.dto.ProductListDto;
-import com.rkulig.shop.product.model.Product;
-import com.rkulig.shop.product.repository.ProductRepository;
+import com.rkulig.shop.common.model.Category;
+import com.rkulig.shop.common.model.Product;
+import com.rkulig.shop.common.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

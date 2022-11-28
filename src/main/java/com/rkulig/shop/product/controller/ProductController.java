@@ -1,7 +1,7 @@
 package com.rkulig.shop.product.controller;
 
 import com.rkulig.shop.common.dto.ProductListDto;
-import com.rkulig.shop.product.model.Product;
+import com.rkulig.shop.common.model.Product;
 import com.rkulig.shop.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;

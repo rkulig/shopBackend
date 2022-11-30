@@ -59,6 +59,6 @@ public class CartMapper {
         return items.stream()
                 .map(item -> calculateLIneValue(item))
                 .reduce((bigDecimal, bigDecimal2) -> bigDecimal.add(bigDecimal2))
-                .orElseThrow();
+                .orElse(BigDecimal.ZERO);
     }
 }

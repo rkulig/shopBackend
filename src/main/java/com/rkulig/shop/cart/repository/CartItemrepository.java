@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CartItemrepository extends JpaRepository<CartItem, Long> {
+    Long countByCartId(Long cartId);
 }

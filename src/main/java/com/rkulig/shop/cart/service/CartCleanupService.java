@@ -1,7 +1,7 @@
 package com.rkulig.shop.cart.service;
 
 import com.rkulig.shop.cart.model.Cart;
-import com.rkulig.shop.cart.repository.CartItemrepository;
+import com.rkulig.shop.cart.repository.CartItemRepository;
 import com.rkulig.shop.cart.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.List;
 public class CartCleanupService {
 
     private final CartRepository cartRepository;
-    private final CartItemrepository cartItemrepository;
+    private final CartItemRepository cartItemrepository;
 
     @Transactional
     @Scheduled(cron = "${app.cart.cleanup.expression}")

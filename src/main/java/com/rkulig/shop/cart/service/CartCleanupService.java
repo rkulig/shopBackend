@@ -1,8 +1,8 @@
 package com.rkulig.shop.cart.service;
 
-import com.rkulig.shop.cart.model.Cart;
-import com.rkulig.shop.cart.repository.CartItemRepository;
-import com.rkulig.shop.cart.repository.CartRepository;
+import com.rkulig.shop.common.model.Cart;
+import com.rkulig.shop.common.repository.CartItemRepository;
+import com.rkulig.shop.common.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

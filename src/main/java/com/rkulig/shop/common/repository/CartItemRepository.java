@@ -1,6 +1,6 @@
-package com.rkulig.shop.cart.repository;
+package com.rkulig.shop.common.repository;
 
-import com.rkulig.shop.cart.model.CartItem;
+import com.rkulig.shop.common.model.CartItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,8 +1,8 @@
 package com.rkulig.shop.cart.service;
 
-import com.rkulig.shop.cart.model.Cart;
+import com.rkulig.shop.common.model.Cart;
 import com.rkulig.shop.cart.model.dto.CartProductDto;
-import com.rkulig.shop.cart.repository.CartRepository;
+import com.rkulig.shop.common.repository.CartRepository;
 import com.rkulig.shop.common.model.Product;
 import com.rkulig.shop.common.repository.ProductRepository;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.rkulig.shop.cart.model;
+package com.rkulig.shop.common.model;
 
 import com.rkulig.shop.common.model.Product;
 import lombok.*;

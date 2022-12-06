@@ -1,4 +1,4 @@
-package com.rkulig.shop.cart.model;
+package com.rkulig.shop.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

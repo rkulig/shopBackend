@@ -1,14 +1,12 @@
-package com.rkulig.shop.cart.repository;
+package com.rkulig.shop.common.repository;
 
-import com.rkulig.shop.cart.model.Cart;
+import com.rkulig.shop.common.model.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static liquibase.repackaged.net.sf.jsqlparser.parser.feature.Feature.delete;
 
 public interface CartRepository extends JpaRepository<Cart, Long> {
 

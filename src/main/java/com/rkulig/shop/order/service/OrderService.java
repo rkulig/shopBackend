@@ -7,11 +7,13 @@ import com.rkulig.shop.common.repository.CartRepository;
 import com.rkulig.shop.order.model.Order;
 import com.rkulig.shop.order.model.OrderRow;
 import com.rkulig.shop.order.model.OrderStatus;
+import com.rkulig.shop.order.model.Payment;
 import com.rkulig.shop.order.model.Shipment;
 import com.rkulig.shop.order.model.dto.OrderDto;
 import com.rkulig.shop.order.model.dto.OrderSummary;
 import com.rkulig.shop.order.repository.OrderRepository;
 import com.rkulig.shop.order.repository.OrderRowRepository;
+import com.rkulig.shop.order.repository.PaymentRepository;
 import com.rkulig.shop.order.repository.ShipmentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,12 +34,14 @@ public class OrderService {
     private final CartItemRepository cartItemRepository;
     private final OrderRowRepository orderRowRepository;
     private final ShipmentRepository shipmentRepository;
+    private final PaymentRepository paymentRepository;
 
     @Transactional
     public OrderSummary placeOrder(OrderDto orderDto) {
         // pobrac koszyk
         Cart cart = cartRepository.findById(orderDto.getCartId()).orElseThrow();
         Shipment shipment = shipmentRepository.findById(orderDto.getShipmentId()).orElseThrow();
+        Payment payment = paymentRepository.findById(orderDto.getPaymentId()).orElseThrow();
         // stworzenie zamowienia z wierszami
         log.info("firstName:" + orderDto.getFirstName() );
         Order order = Order.builder()
@@ -51,6 +55,7 @@ public class OrderService {
                 .placeDate(LocalDateTime.now())
                 .orderStatus(OrderStatus.NEW)
                 .grossValue(calculateGrossValue(cart.getItems(), shipment))
+                .payment(payment)
                 .build();
         Order newOrder = orderRepository.save(order);
         // zapisac zamowienie
@@ -63,7 +68,8 @@ public class OrderService {
                 .id(newOrder.getId())
                 .placeDate(newOrder.getPlaceDate())
                 .status(newOrder.getOrderStatus())
-                .grossValues(newOrder.getGrossValue())
+                .grossValue(newOrder.getGrossValue())
+                .payment(payment)
                 .build();
     }
 

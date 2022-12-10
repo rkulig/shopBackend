@@ -1,5 +1,5 @@
 package com.rkulig.shop.order.model;
 
-public enum PymentType {
+public enum PaymentType {
     BANK_TRANSFER
 }

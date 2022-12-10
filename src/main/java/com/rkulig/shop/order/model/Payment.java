@@ -1,6 +1,10 @@
 package com.rkulig.shop.order.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +15,9 @@ import javax.persistence.Id;
 
 @Entity
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Payment {
 
     @Id
@@ -18,7 +25,7 @@ public class Payment {
     private Long id;
     private String name;
     @Enumerated(EnumType.STRING)
-    private PymentType type;
+    private PaymentType type;
     private boolean defaultPayment;
     private String note;
 }

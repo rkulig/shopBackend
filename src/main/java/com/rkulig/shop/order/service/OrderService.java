@@ -1,15 +1,10 @@
 package com.rkulig.shop.order.service;
 
 import com.rkulig.shop.common.mail.EmailClientService;
-import com.rkulig.shop.common.mail.EmailSender;
-import com.rkulig.shop.common.mail.EmailSimpleService;
 import com.rkulig.shop.common.model.Cart;
-import com.rkulig.shop.common.model.CartItem;
 import com.rkulig.shop.common.repository.CartItemRepository;
 import com.rkulig.shop.common.repository.CartRepository;
 import com.rkulig.shop.order.model.Order;
-import com.rkulig.shop.order.model.OrderRow;
-import com.rkulig.shop.order.model.OrderStatus;
 import com.rkulig.shop.order.model.Payment;
 import com.rkulig.shop.order.model.Shipment;
 import com.rkulig.shop.order.model.dto.OrderDto;
@@ -23,10 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import static com.rkulig.shop.order.service.mapper.OrderMapper.createNewOrder;
 import static com.rkulig.shop.order.service.mapper.OrderMapper.createOrderSummary;
@@ -47,11 +39,11 @@ public class OrderService {
     private final EmailClientService emailClientService;
 
     @Transactional
-    public OrderSummary placeOrder(OrderDto orderDto) {
+    public OrderSummary placeOrder(OrderDto orderDto, Long userId) {
         Cart cart = cartRepository.findById(orderDto.getCartId()).orElseThrow();
         Shipment shipment = shipmentRepository.findById(orderDto.getShipmentId()).orElseThrow();
         Payment payment = paymentRepository.findById(orderDto.getPaymentId()).orElseThrow();
-        Order newOrder = orderRepository.save(createNewOrder(orderDto, cart, shipment, payment));
+        Order newOrder = orderRepository.save(createNewOrder(orderDto, cart, shipment, payment, userId));
         saveOrderRows(cart, newOrder.getId(), shipment);
         clearOrderCart(orderDto);
         sendConfirmEmail(newOrder);

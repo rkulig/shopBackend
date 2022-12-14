@@ -1,5 +1,6 @@
 package com.rkulig.shop.security;
 
+import com.rkulig.shop.security.model.UserRole;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -39,7 +40,7 @@ public class SecurityConfig {
                                            UserDetailsService userDetailsService) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry expressionInterceptUrlRegistry1 = http.authorizeRequests();
         http.authorizeRequests(expressionInterceptUrlRegistry -> expressionInterceptUrlRegistry
-                .antMatchers("/admin/**").authenticated()
+                .antMatchers("/admin/**").hasRole(UserRole.ROLE_ADMIN.getRole())
                 .anyRequest().permitAll()
         );
         http.csrf().disable();
@@ -53,8 +54,4 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
-    }
 }

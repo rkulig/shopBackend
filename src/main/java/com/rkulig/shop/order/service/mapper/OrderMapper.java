@@ -4,7 +4,7 @@ import com.rkulig.shop.common.model.Cart;
 import com.rkulig.shop.common.model.CartItem;
 import com.rkulig.shop.order.model.Order;
 import com.rkulig.shop.order.model.OrderRow;
-import com.rkulig.shop.order.model.OrderStatus;
+import com.rkulig.shop.common.model.OrderStatus;
 import com.rkulig.shop.order.model.Payment;
 import com.rkulig.shop.order.model.Shipment;
 import com.rkulig.shop.order.model.dto.OrderDto;

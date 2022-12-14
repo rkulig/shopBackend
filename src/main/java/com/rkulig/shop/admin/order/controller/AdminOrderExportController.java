@@ -1,8 +1,8 @@
 package com.rkulig.shop.admin.order.controller;
 
 import com.rkulig.shop.admin.order.model.AdminOrder;
-import com.rkulig.shop.admin.order.model.AdminOrderStatus;
 import com.rkulig.shop.admin.order.service.AdminExportService;
+import com.rkulig.shop.common.model.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,7 +44,7 @@ public class AdminOrderExportController {
     public ResponseEntity<Resource> exportOrders(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate from,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate to,
-            @RequestParam AdminOrderStatus orderStatus
+            @RequestParam OrderStatus orderStatus
     ) {
         List<AdminOrder> adminOrders = adminExportService.exportOrders(
                 LocalDateTime.of(from, LocalTime.of(0, 0, 0)),

@@ -1,9 +1,9 @@
 package com.rkulig.shop.admin.order.service;
 
 import com.rkulig.shop.admin.order.model.AdminOrder;
-import com.rkulig.shop.admin.order.model.AdminOrderStatus;
 import com.rkulig.shop.admin.order.model.dto.AdminOrderStats;
 import com.rkulig.shop.admin.order.repository.AdminOrderRepository;
+import com.rkulig.shop.common.model.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class AdminOrderStatsService {
         List<AdminOrder> orders = adminOrderRepository.findAllByPlaceDateIsBetweenAndOrderStatus(
                 from,
                 to,
-                AdminOrderStatus.COMPLETED
+                OrderStatus.COMPLETED
         );
 
         TreeMap<Integer, AdminOrderStatsValue> result = new TreeMap<>();

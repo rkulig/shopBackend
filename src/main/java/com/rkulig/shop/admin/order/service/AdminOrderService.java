@@ -2,9 +2,9 @@ package com.rkulig.shop.admin.order.service;
 
 import com.rkulig.shop.admin.order.model.AdminOrder;
 import com.rkulig.shop.admin.order.model.AdminOrderLog;
-import com.rkulig.shop.admin.order.model.AdminOrderStatus;
 import com.rkulig.shop.admin.order.repository.AdminOrderLogRepository;
 import com.rkulig.shop.admin.order.repository.AdminOrderRepository;
+import com.rkulig.shop.common.model.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Map;
-
-import static com.rkulig.shop.admin.order.service.AdminOrderEmailMessage.*;
 
 
 @Service
@@ -53,8 +51,8 @@ public class AdminOrderService {
     }
 
     private void processOrderStatusChange(AdminOrder adminOrder, Map<String, String> values) {
-        AdminOrderStatus oldStatus = adminOrder.getOrderStatus();
-        AdminOrderStatus newStatus = AdminOrderStatus.valueOf(values.get("orderStatus"));
+        OrderStatus oldStatus = adminOrder.getOrderStatus();
+        OrderStatus newStatus = OrderStatus.valueOf(values.get("orderStatus"));
         if (oldStatus == newStatus){
             return;
         }
@@ -63,7 +61,7 @@ public class AdminOrderService {
         emailNotificationForStatusChange.sendEmailNotification(newStatus, adminOrder);
     }
 
-    private void logStatusChange(Long orderId, AdminOrderStatus oldStatus, AdminOrderStatus newStatus) {
+    private void logStatusChange(Long orderId, OrderStatus oldStatus, OrderStatus newStatus) {
         adminOrderLogRepository.save(AdminOrderLog.builder()
                 .created(LocalDateTime.now())
                 .orderId(orderId)

@@ -7,7 +7,7 @@ import com.rkulig.shop.common.model.CartItem;
 import com.rkulig.shop.common.model.Product;
 import com.rkulig.shop.common.repository.CartItemRepository;
 import com.rkulig.shop.common.repository.CartRepository;
-import com.rkulig.shop.order.model.OrderStatus;
+import com.rkulig.shop.common.model.OrderStatus;
 import com.rkulig.shop.order.model.Payment;
 import com.rkulig.shop.order.model.PaymentType;
 import com.rkulig.shop.order.model.Shipment;

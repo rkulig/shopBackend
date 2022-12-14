@@ -8,18 +8,22 @@ import com.rkulig.shop.order.model.Order;
 import com.rkulig.shop.order.model.Payment;
 import com.rkulig.shop.order.model.Shipment;
 import com.rkulig.shop.order.model.dto.OrderDto;
+import com.rkulig.shop.order.model.dto.OrderListDto;
 import com.rkulig.shop.order.model.dto.OrderSummary;
 import com.rkulig.shop.order.repository.OrderRepository;
 import com.rkulig.shop.order.repository.OrderRowRepository;
 import com.rkulig.shop.order.repository.PaymentRepository;
 import com.rkulig.shop.order.repository.ShipmentRepository;
+import com.rkulig.shop.order.service.mapper.OrderDtoMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
+import static com.rkulig.shop.order.service.mapper.OrderDtoMapper.*;
 import static com.rkulig.shop.order.service.mapper.OrderMapper.createNewOrder;
 import static com.rkulig.shop.order.service.mapper.OrderMapper.createOrderSummary;
 import static com.rkulig.shop.order.service.mapper.OrderMapper.mapToOrderRow;
@@ -84,6 +88,10 @@ public class OrderService {
                 .map(cartItem -> mapToOrderRowWithQuantity(orderId, cartItem))
                 .peek(orderRow -> orderRowRepository.save(orderRow))
                 .toList();
+    }
+
+    public List<OrderListDto> getOrdersForCustomer(Long userId) {
+        return mapToOrderListDto(orderRepository.findByUserId(userId));
     }
 
 }

@@ -1,9 +1,9 @@
-package com.rkulig.shop.admin.order.model;
+package com.rkulig.shop.common.model;
 
 import lombok.Getter;
 
 @Getter
-public enum AdminOrderStatus {
+public enum OrderStatus {
     NEW("Nowe"),
     PAID("Opłacone"),
     PROCESSING("Przetwarzane"),
@@ -14,8 +14,7 @@ public enum AdminOrderStatus {
 
     private String value;
 
-    AdminOrderStatus(String value) {
+    OrderStatus(String value) {
         this.value = value;
     }
-
 }

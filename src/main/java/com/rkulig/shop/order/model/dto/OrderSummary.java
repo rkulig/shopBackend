@@ -1,6 +1,6 @@
 package com.rkulig.shop.order.model.dto;
 
-import com.rkulig.shop.order.model.OrderStatus;
+import com.rkulig.shop.common.model.OrderStatus;
 import com.rkulig.shop.order.model.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
